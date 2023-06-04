@@ -228,7 +228,6 @@ int check(const std::string& filename){
 
 }
 
-
 int verifica_solucao_8_rainhas(const std::string& filename) {
     int valor = check(filename);
     
