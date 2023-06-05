@@ -1,4 +1,9 @@
+/**
+*@file rainhas.cpp
+*/
+
 // Copyright (c) 2023, Thiago Fernandes
+
 
 #include <iostream>
 #include <fstream>
@@ -11,7 +16,18 @@ using std::cout; using std::cin;
 using std::endl; using std::string;
 using std::vector;
 
-//  Verifica tamanho da da matriz
+/**
+* @brief Verifica tamanho da matriz inserida.
+*
+* Função verificaTamanho ira contar o numero de 0s e 1s no tabuleiro,
+* caso haja mais ou menos de 64 pecas no tabuleiros, ela ira retornarm erro,
+* bem como caso seja inserido um caractere diferente de "0" ou "1".
+*
+* @param filename nome do arquivo .txt que contem a matriz. 
+* @return retorna 1 caso esteja tudo certo com a matiz,
+*                 -1 caso seja um formato inválido
+*                 -2 caso não seja possível abrir o arquivo.
+*/
 int verificaTamanho(const std::string& filename) {
     std::ifstream arquivo(filename);
 
@@ -42,7 +58,23 @@ int verificaTamanho(const std::string& filename) {
     return 1;
 }
 
-//  Checagem de ataques das rainahs
+/**
+* Checagem de possíveis ataques.
+*
+* Função check irá realizar a checagem de todos os possíveis ataques de uma
+* rainha. percorrendo a matriz a procura de rainhas na mesma linha, coluna ou
+* diagonais. 
+*
+* @param filename nome do arquivo .txt que contem o tabuleiro de xadrez. 
+* @return retorna 1 caso a disposição das rainhas no tabuleiro satisfaça
+*                  o problema;
+*                 0 caso alguma rainha esteja em posição em que possa atacar
+*                  outra. Neste caso, o programa irá criar um arquivo txt com o
+*                  nome "ataque - 'nome do arquivo correspondente'", mostrando
+*                  as posições em que ocorrem ataques de rainhas;
+*                 -1 caso o tabuleiro do arquivo não seja uma matriz 8x8;
+*                 -2 caso não seja possível abrir o arquivo.
+*/
 int check(const std::string& filename) {
     if (verificaTamanho(filename) == -1) { return -1;}
     if (verificaTamanho(filename) == -2) { return -2;}
@@ -230,7 +262,22 @@ int check(const std::string& filename) {
     }
     return valueReturn;
 }
-
+/**
+* Verifica o arquivo.
+*
+* Função verifica_solucao_8_rainhas é a função chamada pelo testa_rainhas.cpp
+* que por sua vez chama as função de checagem na ordem certa para retornar a
+* solução para o problema das 8 rainhas.
+* @param filename nome do arquivo .txt que contem o tabuleiro de xadrez. 
+* @return retorna 1 caso a disposição das rainhas no tabuleiro satisfaça
+*                  o problema;
+*                 0 caso alguma rainha esteja em posição em que possa atacar
+*                  outra. Neste caso, o programa irá criar um arquivo txt com o
+*                  nome "ataque - 'nome do arquivo correspondente'", mostrando
+*                  as posições em que ocorrem ataques de rainhas;
+*                 -1 caso o tabuleiro do arquivo não seja uma matriz 8x8;
+*                 -2 caso não seja possível abrir o arquivo.
+*/
 int verifica_solucao_8_rainhas(const std::string& filename) {
     int valor = check(filename);
 
@@ -246,6 +293,6 @@ int verifica_solucao_8_rainhas(const std::string& filename) {
     if (valor == 1) {  //  problema que satisfaz as 8 rainhas
         return 1;
     }
-    
+
     return -1;
 }

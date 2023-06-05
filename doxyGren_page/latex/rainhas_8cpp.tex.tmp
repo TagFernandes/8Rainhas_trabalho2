@@ -1,0 +1,76 @@
+\hypertarget{rainhas_8cpp}{}\doxysection{rainhas.\+cpp File Reference}
+\label{rainhas_8cpp}\index{rainhas.cpp@{rainhas.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include \char`\"{}rainhas.\+hpp\char`\"{}}\newline
+Include dependency graph for rainhas.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rainhas_8cpp_a93608a9b930d6a877f118b2ca814ad2e}{verifica\+Tamanho}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Verifica tamanho da matriz inserida. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rainhas_8cpp_aa51706c0364ed9078f7d22cbb905520a}{check}} (const std\+::string \&filename)
+\item 
+int \mbox{\hyperlink{rainhas_8cpp_a38b054001386a8eb85bd3906d23961c2}{verifica\+\_\+solucao\+\_\+8\+\_\+rainhas}} (const std\+::string \&filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rainhas_8cpp_aa51706c0364ed9078f7d22cbb905520a}\label{rainhas_8cpp_aa51706c0364ed9078f7d22cbb905520a}} 
+\index{rainhas.cpp@{rainhas.cpp}!check@{check}}
+\index{check@{check}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily int check (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+Checagem de possíveis ataques.
+
+Função check irá realizar a checagem de todos os possíveis ataques de uma rainha. percorrendo a matriz a procura de rainhas na mesma linha, coluna ou diagonais.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do arquivo .txt que contem o tabuleiro de xadrez. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 1 caso a disposição das rainhas no tabuleiro satisfaça o problema; 0 caso alguma rainha esteja em posição em que possa atacar outra. Neste caso, o programa irá criar um arquivo txt com o nome \char`\"{}ataque -\/ \textquotesingle{}nome do arquivo correspondente\textquotesingle{}\char`\"{}, mostrando as posições em que ocorrem ataques de rainhas; -\/1 caso o tabuleiro do arquivo não seja uma matriz 8x8; -\/2 caso não seja possível abrir o arquivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_a38b054001386a8eb85bd3906d23961c2}\label{rainhas_8cpp_a38b054001386a8eb85bd3906d23961c2}} 
+\index{rainhas.cpp@{rainhas.cpp}!verifica\_solucao\_8\_rainhas@{verifica\_solucao\_8\_rainhas}}
+\index{verifica\_solucao\_8\_rainhas@{verifica\_solucao\_8\_rainhas}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{verifica\_solucao\_8\_rainhas()}{verifica\_solucao\_8\_rainhas()}}
+{\footnotesize\ttfamily int verifica\+\_\+solucao\+\_\+8\+\_\+rainhas (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+Verifica o arquivo.
+
+Função verifica\+\_\+solucao\+\_\+8\+\_\+rainhas é a função chamada pelo \mbox{\hyperlink{testa__rainhas_8cpp}{testa\+\_\+rainhas.\+cpp}} que por sua vez chama as função de checagem na ordem certa para retornar a solução para o problema das 8 rainhas. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do arquivo .txt que contem o tabuleiro de xadrez. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 1 caso a disposição das rainhas no tabuleiro satisfaça o problema; 0 caso alguma rainha esteja em posição em que possa atacar outra. Neste caso, o programa irá criar um arquivo txt com o nome \char`\"{}ataque -\/ \textquotesingle{}nome do arquivo correspondente\textquotesingle{}\char`\"{}, mostrando as posições em que ocorrem ataques de rainhas; -\/1 caso o tabuleiro do arquivo não seja uma matriz 8x8; -\/2 caso não seja possível abrir o arquivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_a93608a9b930d6a877f118b2ca814ad2e}\label{rainhas_8cpp_a93608a9b930d6a877f118b2ca814ad2e}} 
+\index{rainhas.cpp@{rainhas.cpp}!verificaTamanho@{verificaTamanho}}
+\index{verificaTamanho@{verificaTamanho}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{verificaTamanho()}{verificaTamanho()}}
+{\footnotesize\ttfamily int verifica\+Tamanho (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Verifica tamanho da matriz inserida. 
+
+Função verifica\+Tamanho ira contar o numero de 0s e 1s no tabuleiro, caso haja mais ou menos de 64 pecas no tabuleiros, ela ira retornarm erro, bem como caso seja inserido um caractere diferente de \char`\"{}0\char`\"{} ou \char`\"{}1\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do arquivo .txt que contem a matriz. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 1 caso esteja tudo certo com a matiz, -\/1 caso seja um formato inválido -\/2 caso não seja possível abrir o arquivo. 
+\end{DoxyReturn}

@@ -1,0 +1,67 @@
+\hypertarget{testa__rainhas_8cpp}{}\doxysection{testa\+\_\+rainhas.\+cpp File Reference}
+\label{testa__rainhas_8cpp}\index{testa\_rainhas.cpp@{testa\_rainhas.cpp}}
+{\ttfamily \#include \char`\"{}rainhas.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}catch.\+hpp\char`\"{}}\newline
+Include dependency graph for testa\+\_\+rainhas.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{testa__rainhas_8cpp_aca9be0bcff3c74409f8f2ffa7e4d3947}{TEST\+\_\+\+CASE}} (\char`\"{}solucoes invalidas para o problema\char`\"{}, \char`\"{}\mbox{[}rainhas\mbox{]}\char`\"{})
+\item 
+\mbox{\hyperlink{testa__rainhas_8cpp_ae803d98119eb0b1517f71aded4b3e359}{TEST\+\_\+\+CASE}} (\char`\"{}solucoes validas para o problema\char`\"{}, \char`\"{}\mbox{[}rainhas\mbox{]}\char`\"{})
+\item 
+\mbox{\hyperlink{testa__rainhas_8cpp_a22c62394863e04915e3adfc2399cacbe}{TEST\+\_\+\+CASE}} (\char`\"{}matriz invalida para o problema\char`\"{}, \char`\"{}\mbox{[}rainhas\mbox{]}\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{testa__rainhas_8cpp_a22c62394863e04915e3adfc2399cacbe}\label{testa__rainhas_8cpp_a22c62394863e04915e3adfc2399cacbe}} 
+\index{testa\_rainhas.cpp@{testa\_rainhas.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!testa\_rainhas.cpp@{testa\_rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{\char`\"{}matriz invalida para o problema\char`\"{}}]{,  }\item[{\char`\"{}\char`\"{}}]{\mbox{[}rainhas\mbox{]} }\end{DoxyParamCaption})}
+
+TEST\+\_\+\+CASE -\/ casos com solução
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do arquivo .txt que contem o tabuleiro de xadrez. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna -\/1 caso a matriz não seja 8x8 ou possua caracteres diferentes de \char`\"{}0\char`\"{} ou \char`\"{}1\char`\"{}; -\/2 caso não seja possível abrir o arquivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{testa__rainhas_8cpp_aca9be0bcff3c74409f8f2ffa7e4d3947}\label{testa__rainhas_8cpp_aca9be0bcff3c74409f8f2ffa7e4d3947}} 
+\index{testa\_rainhas.cpp@{testa\_rainhas.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!testa\_rainhas.cpp@{testa\_rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{\char`\"{}solucoes invalidas para o problema\char`\"{}}]{,  }\item[{\char`\"{}\char`\"{}}]{\mbox{[}rainhas\mbox{]} }\end{DoxyParamCaption})}
+
+TEST\+\_\+\+CASE -\/ casos sem solução
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do arquivo .txt que contem o tabuleiro de xadrez. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 caso alguma rainha esteja em posição em que possa atacar outra. Neste caso, o programa irá criar um arquivo txt com o nome \char`\"{}ataque -\/ \textquotesingle{}nome do arquivo correspondente\textquotesingle{}\char`\"{}, mostrando as posições em que ocorrem ataques de rainhas. -\/2 caso não seja possível abrir o arquivo. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{testa__rainhas_8cpp_ae803d98119eb0b1517f71aded4b3e359}\label{testa__rainhas_8cpp_ae803d98119eb0b1517f71aded4b3e359}} 
+\index{testa\_rainhas.cpp@{testa\_rainhas.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!testa\_rainhas.cpp@{testa\_rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{\char`\"{}solucoes validas para o problema\char`\"{}}]{,  }\item[{\char`\"{}\char`\"{}}]{\mbox{[}rainhas\mbox{]} }\end{DoxyParamCaption})}
+
+TEST\+\_\+\+CASE -\/ casos com solução
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do arquivo .txt que contem o tabuleiro de xadrez. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 1 caso a disposição das rainhas no tabuleiro satisfaça o problema; -\/2 caso não seja possível abrir o arquivo. 
+\end{DoxyReturn}
