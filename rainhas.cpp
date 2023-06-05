@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cctype>
 #include "rainhas.hpp"
 
 using std::cout; using std::cin;
@@ -19,13 +20,20 @@ int verificaTamanho(const std::string& filename) {
         return -2;
     }
 
-    std::string conteudo((std::istreambuf_iterator<char>(arquivo)),
-                        (std::istreambuf_iterator<char>()));
+    int contLetras = 0;
+    int contNumeros = 0;
+    char caractere;
 
-    int numCaracteres = conteudo.size();
+    while (arquivo.get(caractere)) {
+        if (isalpha(caractere)) {
+            contLetras++;
+        } else if (isdigit(caractere)) {
+            contNumeros++;
+        }
+    }
 
-    if (numCaracteres != 80) {
-        cout << "numeros de caracteres: " << numCaracteres << endl;
+    if (contNumeros != 64 && contLetras != 0) {
+        cout << "numeros de caracteres: " << contNumeros << endl;
         return -1;
     }
 
@@ -40,11 +48,6 @@ int check(const std::string& filename) {
     if (verificaTamanho(filename) == -2) { return -2;}
 
     std::ifstream arquivo(filename);
-
-    if (!arquivo) {
-        std::cerr << "Erro ao abrir o arquivo." << std::endl;
-        return -2;
-    }
 
     std::string linha1, linha2, linha3, linha4, linha5, linha6, linha7, linha8;
     std::string linhaExtra;
