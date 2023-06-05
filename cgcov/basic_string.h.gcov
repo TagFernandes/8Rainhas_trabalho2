@@ -6658,14 +6658,14 @@
         -: 6657:  // DR 1261. Insufficent overloads for to_string / to_wstring
         -: 6658:
         -: 6659:  inline string
-      288: 6660:  to_string(int __val)
+      292: 6660:  to_string(int __val)
         -: 6661:  {
-      288: 6662:    const bool __neg = __val < 0;
-     288*: 6663:    const unsigned __uval = __neg ? (unsigned)~__val + 1u : __val;
-      288: 6664:    const auto __len = __detail::__to_chars_len(__uval);
-      288: 6665:    string __str(__neg + __len, '-');
-      288: 6666:    __detail::__to_chars_10_impl(&__str[__neg], __len, __uval);
-      288: 6667:    return __str;
+      292: 6662:    const bool __neg = __val < 0;
+     292*: 6663:    const unsigned __uval = __neg ? (unsigned)~__val + 1u : __val;
+      292: 6664:    const auto __len = __detail::__to_chars_len(__uval);
+      292: 6665:    string __str(__neg + __len, '-');
+      292: 6666:    __detail::__to_chars_10_impl(&__str[__neg], __len, __uval);
+      292: 6667:    return __str;
     =====: 6668:  }
         -: 6669:
         -: 6670:  inline string

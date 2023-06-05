@@ -180,8 +180,8 @@
      1080:  179:        for (int j = 0; j < 8; j++) {
       960:  180:            if (arrays[i][j] == 1) {
       120:  181:                shouldBreak =  false;
-      650:  182:                for (int y = i; y < 8; y++) {
-     2969:  183:                    for (int x = j; x < 8; x++) {
+      651:  182:                for (int y = i; y < 8; y++) {
+     2970:  183:                    for (int x = j; x < 8; x++) {
      2439:  184:                        if (arrays[y][x] == 1 && i != y && x == j) {
        12:  185:                            ataques += std::to_string(i + 1); ataques += ",";
        12:  186:                            ataques += std::to_string(j + 1);
@@ -194,7 +194,7 @@
        12:  193:                            break;
         -:  194:                        }
         -:  195:                    }
-      542:  196:                    if (shouldBreak) {break;}
+      543:  196:                    if (shouldBreak) {break;}
         -:  197:                }
         -:  198:            }
         -:  199:        }
@@ -206,20 +206,20 @@
      1080:  205:        for (int j = 0; j < 8; j++) {
       960:  206:            if (arrays[i][j] == 1) {
       120:  207:                cont = 1;
-      317:  208:                for (int y = i + 1; y < 8; y++) {
-      270:  209:                    if (j+cont >= 8) {
-       43:  210:                        break;
+      310:  208:                for (int y = i + 1; y < 8; y++) {
+      264:  209:                    if (j+cont >= 8) {
+       42:  210:                        break;
         -:  211:                    }
-      227:  212:                    if (arrays[y][j+cont] == 1) {
-       30:  213:                        ataques += std::to_string(i + 1); ataques += ",";
-       30:  214:                        ataques += std::to_string(j + 1);
-       30:  215:                        ataques += "            ";
-       30:  216:                        ataques += std::to_string(y + 1); ataques += ",";
-       30:  217:                        ataques += std::to_string(j+cont + 1); ataques += "\n";
-       30:  218:                        valueReturn = 0;
-       30:  219:                        break;
+      222:  212:                    if (arrays[y][j+cont] == 1) {
+       32:  213:                        ataques += std::to_string(i + 1); ataques += ",";
+       32:  214:                        ataques += std::to_string(j + 1);
+       32:  215:                        ataques += "            ";
+       32:  216:                        ataques += std::to_string(y + 1); ataques += ",";
+       32:  217:                        ataques += std::to_string(j+cont + 1); ataques += "\n";
+       32:  218:                        valueReturn = 0;
+       32:  219:                        break;
         -:  220:                    }
-      197:  221:                    cont += 1;
+      190:  221:                    cont += 1;
         -:  222:                }
         -:  223:            }
         -:  224:        }
@@ -231,20 +231,20 @@
      1080:  230:        for (int j = 0; j < 8; j++) {
       960:  231:            if (arrays[i][j] == 1) {
       120:  232:                cont = 1;
-      328:  233:                for (int y = i + 1; y < 8; y++) {
-      276:  234:                    if (j-cont < 0) {
+      333:  233:                for (int y = i + 1; y < 8; y++) {
+      280:  234:                    if (j-cont < 0) {
        45:  235:                        break;
         -:  236:                    }
-      231:  237:                    if (arrays[y][j-cont] == 1) {
-       23:  238:                        ataques += std::to_string(i + 1); ataques += ",";
-       23:  239:                        ataques += std::to_string(j + 1);
-       23:  240:                        ataques += "            ";
-       23:  241:                        ataques += std::to_string(y + 1); ataques += ",";
-       23:  242:                        ataques += std::to_string(j-cont + 1); ataques += "\n";
-       23:  243:                        valueReturn = 0;
-       23:  244:                        break;
+      235:  237:                    if (arrays[y][j-cont] == 1) {
+       22:  238:                        ataques += std::to_string(i + 1); ataques += ",";
+       22:  239:                        ataques += std::to_string(j + 1);
+       22:  240:                        ataques += "            ";
+       22:  241:                        ataques += std::to_string(y + 1); ataques += ",";
+       22:  242:                        ataques += std::to_string(j-cont + 1); ataques += "\n";
+       22:  243:                        valueReturn = 0;
+       22:  244:                        break;
         -:  245:                    }
-      208:  246:                    cont += 1;
+      213:  246:                    cont += 1;
         -:  247:                }
         -:  248:            }
         -:  249:        }
