@@ -83,15 +83,15 @@
         -:   82:    {
         -:   83:      template<typename _InputIterator, typename _ForwardIterator>
         -:   84:        static _ForwardIterator
-       19:   85:        __uninit_copy(_InputIterator __first, _InputIterator __last,
+       20:   85:        __uninit_copy(_InputIterator __first, _InputIterator __last,
         -:   86:		      _ForwardIterator __result)
         -:   87:        {
-       19:   88:	  _ForwardIterator __cur = __result;
+       20:   88:	  _ForwardIterator __cur = __result;
         -:   89:	  __try
         -:   90:	    {
-      171:   91:	      for (; __first != __last; ++__first, (void)++__cur)
-      152:   92:		std::_Construct(std::__addressof(*__cur), *__first);
-       19:   93:	      return __cur;
+      180:   91:	      for (; __first != __last; ++__first, (void)++__cur)
+      160:   92:		std::_Construct(std::__addressof(*__cur), *__first);
+       20:   93:	      return __cur;
         -:   94:	    }
     =====:   95:	  __catch(...)
         -:   96:	    {
@@ -124,7 +124,7 @@
         -:  123:  */
         -:  124:  template<typename _InputIterator, typename _ForwardIterator>
         -:  125:    inline _ForwardIterator
-       19:  126:    uninitialized_copy(_InputIterator __first, _InputIterator __last,
+       20:  126:    uninitialized_copy(_InputIterator __first, _InputIterator __last,
         -:  127:		       _ForwardIterator __result)
         -:  128:    {
         -:  129:      typedef typename iterator_traits<_InputIterator>::value_type
@@ -143,13 +143,13 @@
         -:  142:      typedef typename iterator_traits<_ForwardIterator>::reference _RefType2;
         -:  143:      // Trivial types can have deleted assignment, so using std::copy
         -:  144:      // would be ill-formed. Require assignability before using std::copy:
-       19:  145:      const bool __assignable = is_assignable<_RefType2, _RefType1>::value;
+       20:  145:      const bool __assignable = is_assignable<_RefType2, _RefType1>::value;
         -:  146:#endif
         -:  147:
         -:  148:      return std::__uninitialized_copy<__is_trivial(_ValueType1)
         -:  149:				       && __is_trivial(_ValueType2)
         -:  150:				       && __assignable>::
-       19:  151:	__uninit_copy(__first, __last, __result);
+       20:  151:	__uninit_copy(__first, __last, __result);
         -:  152:    }
         -:  153:
         -:  154:  /// @cond undocumented
@@ -329,9 +329,9 @@
         -:  328:
         -:  329:  template<typename _InputIterator, typename _ForwardIterator, typename _Tp>
         -:  330:    inline _ForwardIterator
-       19:  331:    __uninitialized_copy_a(_InputIterator __first, _InputIterator __last,
+       20:  331:    __uninitialized_copy_a(_InputIterator __first, _InputIterator __last,
         -:  332:			   _ForwardIterator __result, allocator<_Tp>&)
-       19:  333:    { return std::uninitialized_copy(__first, __last, __result); }
+       20:  333:    { return std::uninitialized_copy(__first, __last, __result); }
         -:  334:
         -:  335:  template<typename _InputIterator, typename _ForwardIterator,
         -:  336:	   typename _Allocator>

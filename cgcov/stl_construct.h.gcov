@@ -107,7 +107,7 @@
         -:  106:  template<typename _Tp, typename... _Args>
         -:  107:    _GLIBCXX20_CONSTEXPR
         -:  108:    inline void
-     1659:  109:    _Construct(_Tp* __p, _Args&&... __args)
+     1667:  109:    _Construct(_Tp* __p, _Args&&... __args)
         -:  110:    {
         -:  111:#if __cplusplus >= 202002L && __has_builtin(__builtin_is_constant_evaluated)
         -:  112:      if (__builtin_is_constant_evaluated())
@@ -117,8 +117,8 @@
         -:  116:	  return;
         -:  117:	}
         -:  118:#endif
-     1659:  119:      ::new(static_cast<void*>(__p)) _Tp(std::forward<_Args>(__args)...);
-     1659:  120:    }
+     1667:  119:      ::new(static_cast<void*>(__p)) _Tp(std::forward<_Args>(__args)...);
+     1667:  120:    }
         -:  121:#else
         -:  122:  template<typename _T1, typename _T2>
         -:  123:    inline void
@@ -144,25 +144,25 @@
         -:  143:   */
         -:  144:  template<typename _Tp>
         -:  145:    _GLIBCXX14_CONSTEXPR inline void
-     1710:  146:    _Destroy(_Tp* __pointer)
+     1718:  146:    _Destroy(_Tp* __pointer)
         -:  147:    {
         -:  148:#if __cplusplus > 201703L
         -:  149:      std::destroy_at(__pointer);
         -:  150:#else
-     1710:  151:      __pointer->~_Tp();
+     1718:  151:      __pointer->~_Tp();
         -:  152:#endif
-     1710:  153:    }
+     1718:  153:    }
         -:  154:
         -:  155:  template<bool>
         -:  156:    struct _Destroy_aux
         -:  157:    {
         -:  158:      template<typename _ForwardIterator>
         -:  159:	static _GLIBCXX20_CONSTEXPR void
-     1194:  160:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
+     1195:  160:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  161:	{
-     2904:  162:	  for (; __first != __last; ++__first)
-     1710:  163:	    std::_Destroy(std::__addressof(*__first));
-     1194:  164:	}
+     2913:  162:	  for (; __first != __last; ++__first)
+     1718:  163:	    std::_Destroy(std::__addressof(*__first));
+     1195:  164:	}
         -:  165:    };
         -:  166:
         -:  167:  template<>
@@ -180,7 +180,7 @@
         -:  179:   */
         -:  180:  template<typename _ForwardIterator>
         -:  181:    _GLIBCXX20_CONSTEXPR inline void
-     1194:  182:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+     1195:  182:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  183:    {
         -:  184:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  185:                       _Value_type;
@@ -194,8 +194,8 @@
         -:  193:	return _Destroy_aux<false>::__destroy(__first, __last);
         -:  194:#endif
         -:  195:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-     1194:  196:	__destroy(__first, __last);
-     1194:  197:    }
+     1195:  196:	__destroy(__first, __last);
+     1195:  197:    }
         -:  198:
         -:  199:  template<bool>
         -:  200:    struct _Destroy_n_aux
