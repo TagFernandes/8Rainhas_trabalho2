@@ -69,15 +69,15 @@
         -:   68:
         -:   69:      // Number of elements.
         -:   70:      constexpr size_type
-        6:   71:      size() const noexcept { return _M_len; }
+        7:   71:      size() const noexcept { return _M_len; }
         -:   72:
         -:   73:      // First element.
         -:   74:      constexpr const_iterator
-       12:   75:      begin() const noexcept { return _M_array; }
+       14:   75:      begin() const noexcept { return _M_array; }
         -:   76:
         -:   77:      // One past the last element.
         -:   78:      constexpr const_iterator
-        6:   79:      end() const noexcept { return begin() + size(); }
+        7:   79:      end() const noexcept { return begin() + size(); }
         -:   80:    };
         -:   81:
         -:   82:  /**
