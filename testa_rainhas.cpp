@@ -59,5 +59,5 @@ TEST_CASE("solucoes validas para o problema", "[rainhas]") {
 */
 TEST_CASE("matriz invalida para o problema", "[rainhas]") {
     REQUIRE(verifica_solucao_8_rainhas("teste_12.txt") == -1);
-    REQUIRE(verifica_solucao_8_rainhas("teste_Beta6.txt") == -1);
+    REQUIRE(verifica_solucao_8_rainhas("teste_16.txt") == -1);
 }
