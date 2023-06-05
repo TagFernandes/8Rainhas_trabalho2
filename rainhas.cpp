@@ -249,7 +249,7 @@ int check(const std::string& filename) {
         }
     }
     if (valueReturn == 0) {
-        std::string nome = "ataques - ";
+        std::string nome = "ataques/ataques - ";
         nome += filename;
         std::ofstream arquivo(nome);
 

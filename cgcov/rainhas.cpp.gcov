@@ -250,15 +250,15 @@
         -:  249:        }
         -:  250:    }
        21:  251:    if (valueReturn == 0) {
-       15:  252:        std::string nome = "ataques - ";
+       15:  252:        std::string nome = "ataques/ataques - ";
        15:  253:        nome += filename;
        15:  254:        std::ofstream arquivo(nome);
         -:  255:
        15:  256:        if (arquivo.is_open()) {  // Verifica se o arquivo foi aberto
-       15:  257:            arquivo << ataques;  // Escreve a mensagem no arquivo
-       15:  258:            arquivo.close();  // Fecha o arquivo
+    #####:  257:            arquivo << ataques;  // Escreve a mensagem no arquivo
+    #####:  258:            arquivo.close();  // Fecha o arquivo
         -:  259:        } else {
-    #####:  260:            std::cout << "Erro ao abrir o arquivo." << std::endl;
+       15:  260:            std::cout << "Erro ao abrir o arquivo." << std::endl;
         -:  261:        }
        15:  262:    }
        21:  263:    return valueReturn;
