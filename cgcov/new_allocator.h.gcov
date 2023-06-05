@@ -77,20 +77,20 @@
         -:   76:#endif
         -:   77:
         -:   78:      _GLIBCXX20_CONSTEXPR
-      64*:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+      65*:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev:
-       64:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+       65:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIcEC2Ev:
     #####:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
         -:   80:
         -:   81:      _GLIBCXX20_CONSTEXPR
-    1966*:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
+    1968*:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_:
-     1966:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
+     1968:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIcEC2ERKS1_:
     #####:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
@@ -101,10 +101,10 @@ _ZN9__gnu_cxx13new_allocatorIcEC2ERKS1_:
         -:   86:	new_allocator(const new_allocator<_Tp1>&) _GLIBCXX_USE_NOEXCEPT { }
         -:   87:
         -:   88:#if __cplusplus <= 201703L
-    2030*:   89:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+    2033*:   89:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev:
-     2030:   89:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+     2033:   89:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIcED2Ev:
     #####:   89:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
@@ -122,7 +122,7 @@ _ZN9__gnu_cxx13new_allocatorIcED2Ev:
         -:  100:      // NB: __n is permitted to be 0.  The C++ standard says nothing
         -:  101:      // about what the return value is when __n == 0.
         -:  102:      _GLIBCXX_NODISCARD _Tp*
-      854:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+      855:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         -:  104:      {
         -:  105:#if __cplusplus >= 201103L
         -:  106:	 // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -130,7 +130,7 @@ _ZN9__gnu_cxx13new_allocatorIcED2Ev:
         -:  108:	 static_assert(sizeof(_Tp) != 0, "cannot allocate incomplete types");
         -:  109:#endif
         -:  110:
-      854:  111:	if (__builtin_expect(__n > this->_M_max_size(), false))
+      855:  111:	if (__builtin_expect(__n > this->_M_max_size(), false))
         -:  112:	  {
         -:  113:	    // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  114:	    // 3190. allocator::allocate sometimes returns too little storage
@@ -146,12 +146,12 @@ _ZN9__gnu_cxx13new_allocatorIcED2Ev:
         -:  124:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
         -:  125:	  }
         -:  126:#endif
-      854:  127:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+      855:  127:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
         -:  128:      }
         -:  129:
         -:  130:      // __p is not permitted to be a null pointer.
         -:  131:      void
-      854:  132:      deallocate(_Tp* __p, size_type __t __attribute__ ((__unused__)))
+      855:  132:      deallocate(_Tp* __p, size_type __t __attribute__ ((__unused__)))
         -:  133:      {
         -:  134:#if __cpp_aligned_new
         -:  135:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
@@ -164,17 +164,17 @@ _ZN9__gnu_cxx13new_allocatorIcED2Ev:
         -:  142:	    return;
         -:  143:	  }
         -:  144:#endif
-      854:  145:	::operator delete(__p
+      855:  145:	::operator delete(__p
         -:  146:#if __cpp_sized_deallocation
         -:  147:			  , __t * sizeof(_Tp)
         -:  148:#endif
         -:  149:			 );
-      854:  150:      }
+      855:  150:      }
         -:  151:
         -:  152:#if __cplusplus <= 201703L
         -:  153:      size_type
-      119:  154:      max_size() const _GLIBCXX_USE_NOEXCEPT
-      119:  155:      { return _M_max_size(); }
+      120:  154:      max_size() const _GLIBCXX_USE_NOEXCEPT
+      120:  155:      { return _M_max_size(); }
         -:  156:
         -:  157:#if __cplusplus >= 201103L
         -:  158:      template<typename _Up, typename... _Args>
@@ -216,10 +216,10 @@ _ZN9__gnu_cxx13new_allocatorIcED2Ev:
         -:  194:
         -:  195:    private:
         -:  196:      _GLIBCXX_CONSTEXPR size_type
-      973:  197:      _M_max_size() const _GLIBCXX_USE_NOEXCEPT
+      975:  197:      _M_max_size() const _GLIBCXX_USE_NOEXCEPT
         -:  198:      {
         -:  199:#if __PTRDIFF_MAX__ < __SIZE_MAX__
-      973:  200:	return std::size_t(__PTRDIFF_MAX__) / sizeof(_Tp);
+      975:  200:	return std::size_t(__PTRDIFF_MAX__) / sizeof(_Tp);
         -:  201:#else
         -:  202:	return std::size_t(-1) / sizeof(_Tp);
         -:  203:#endif
