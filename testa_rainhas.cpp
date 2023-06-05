@@ -23,7 +23,7 @@ TEST_CASE("solucoes invalidas para o problema", "[rainhas]") {
     REQUIRE(verifica_solucao_8_rainhas("teste_8_rainhas.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("teste_13.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("teste_14.txt") == 0);
-    REQUIRE(verifica_solucao_8_rainhas("teste_Beta5.txt") == 0);
+    REQUIRE(verifica_solucao_8_rainhas("teste_15.txt") == 0);
 
     REQUIRE(verifica_solucao_8_rainhas("teste_1.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("teste_2.txt") == 0);
