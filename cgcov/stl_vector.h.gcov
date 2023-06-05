@@ -95,9 +95,9 @@
         -:   94:	pointer _M_finish;
         -:   95:	pointer _M_end_of_storage;
         -:   96:
-      864:   97:	_Vector_impl_data() _GLIBCXX_NOEXCEPT
-      864:   98:	: _M_start(), _M_finish(), _M_end_of_storage()
-      864:   99:	{ }
+      865:   97:	_Vector_impl_data() _GLIBCXX_NOEXCEPT
+      865:   98:	: _M_start(), _M_finish(), _M_end_of_storage()
+      865:   99:	{ }
         -:  100:
         -:  101:#if __cplusplus >= 201103L
         -:  102:	_Vector_impl_data(_Vector_impl_data&& __x) noexcept
@@ -134,9 +134,9 @@
         -:  133:	: _Tp_alloc_type()
         -:  134:	{ }
         -:  135:
-      814:  136:	_Vector_impl(_Tp_alloc_type const& __a) _GLIBCXX_NOEXCEPT
-      814:  137:	: _Tp_alloc_type(__a)
-      814:  138:	{ }
+      815:  136:	_Vector_impl(_Tp_alloc_type const& __a) _GLIBCXX_NOEXCEPT
+      815:  137:	: _Tp_alloc_type(__a)
+      815:  138:	{ }
         -:  139:
         -:  140:#if __cplusplus >= 201103L
         -:  141:	// Not defaulted, to enforce noexcept(true) even when
@@ -274,8 +274,8 @@
         -:  273:      typedef _Alloc allocator_type;
         -:  274:
         -:  275:      _Tp_alloc_type&
-     2135:  276:      _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
-     2135:  277:      { return this->_M_impl; }
+     2138:  276:      _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
+     2138:  277:      { return this->_M_impl; }
         -:  278:
         -:  279:      const _Tp_alloc_type&
         -:  280:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
@@ -291,8 +291,8 @@
         -:  290:      _Vector_base() { }
         -:  291:#endif
         -:  292:
-       24:  293:      _Vector_base(const allocator_type& __a) _GLIBCXX_NOEXCEPT
-       24:  294:      : _M_impl(__a) { }
+       25:  293:      _Vector_base(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+       25:  294:      : _M_impl(__a) { }
         -:  295:
         -:  296:      // Kept for ABI compatibility.
         -:  297:#if !_GLIBCXX_INLINE_VERSION
@@ -331,29 +331,29 @@
         -:  330:      { }
         -:  331:#endif
         -:  332:
-     1195:  333:      ~_Vector_base() _GLIBCXX_NOEXCEPT
+     1196:  333:      ~_Vector_base() _GLIBCXX_NOEXCEPT
         -:  334:      {
-     1195:  335:	_M_deallocate(_M_impl._M_start,
-     1195:  336:		      _M_impl._M_end_of_storage - _M_impl._M_start);
-     1195:  337:      }
+     1196:  335:	_M_deallocate(_M_impl._M_start,
+     1196:  336:		      _M_impl._M_end_of_storage - _M_impl._M_start);
+     1196:  337:      }
         -:  338:
         -:  339:    public:
         -:  340:      _Vector_impl _M_impl;
         -:  341:
         -:  342:      pointer
-      862:  343:      _M_allocate(size_t __n)
+      863:  343:      _M_allocate(size_t __n)
         -:  344:      {
         -:  345:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tr;
-      862:  346:	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
+      863:  346:	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
         -:  347:      }
         -:  348:
         -:  349:      void
-     1246:  350:      _M_deallocate(pointer __p, size_t __n)
+     1247:  350:      _M_deallocate(pointer __p, size_t __n)
         -:  351:      {
         -:  352:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tr;
-     1246:  353:	if (__p)
-      858:  354:	  _Tr::deallocate(_M_impl, __p, __n);
-     1246:  355:      }
+     1247:  353:	if (__p)
+      859:  354:	  _Tr::deallocate(_M_impl, __p, __n);
+     1247:  355:      }
         -:  356:
         -:  357:    protected:
         -:  358:      void
@@ -623,13 +623,13 @@
         -:  622:       *  This will call the element type's copy constructor N times
         -:  623:       *  (where N is @a __l.size()) and do no memory reallocation.
         -:  624:       */
-       20:  625:      vector(initializer_list<value_type> __l,
+       21:  625:      vector(initializer_list<value_type> __l,
         -:  626:	     const allocator_type& __a = allocator_type())
-       20:  627:      : _Base(__a)
+       21:  627:      : _Base(__a)
         -:  628:      {
-       20:  629:	_M_range_initialize(__l.begin(), __l.end(),
-       20:  630:			    random_access_iterator_tag());
-       20:  631:      }
+       21:  629:	_M_range_initialize(__l.begin(), __l.end(),
+       21:  630:			    random_access_iterator_tag());
+       21:  631:      }
         -:  632:#endif
         -:  633:
         -:  634:      /**
@@ -676,12 +676,12 @@
         -:  675:       *  not touched in any way.  Managing the pointer is the user's
         -:  676:       *  responsibility.
         -:  677:       */
-     1195:  678:      ~vector() _GLIBCXX_NOEXCEPT
+     1196:  678:      ~vector() _GLIBCXX_NOEXCEPT
         -:  679:      {
-     1195:  680:	std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
-     1195:  681:		      _M_get_Tp_allocator());
+     1196:  680:	std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+     1196:  681:		      _M_get_Tp_allocator());
         -:  682:	_GLIBCXX_ASAN_ANNOTATE_BEFORE_DEALLOC;
-     1195:  683:      }
+     1196:  683:      }
         -:  684:
         -:  685:      /**
         -:  686:       *  @brief  %Vector assignment operator.
@@ -1041,10 +1041,10 @@
         -: 1040:       *  see at().)
         -: 1041:       */
         -: 1042:      reference
-     3620: 1043:      operator[](size_type __n) _GLIBCXX_NOEXCEPT
+     3804: 1043:      operator[](size_type __n) _GLIBCXX_NOEXCEPT
         -: 1044:      {
         -: 1045:	__glibcxx_requires_subscript(__n);
-     3620: 1046:	return *(this->_M_impl._M_start + __n);
+     3804: 1046:	return *(this->_M_impl._M_start + __n);
         -: 1047:      }
         -: 1048:
         -: 1049:      /**
@@ -1575,18 +1575,18 @@
         -: 1574:      // Called by the second initialize_dispatch above
         -: 1575:      template<typename _ForwardIterator>
         -: 1576:	void
-       20: 1577:	_M_range_initialize(_ForwardIterator __first, _ForwardIterator __last,
+       21: 1577:	_M_range_initialize(_ForwardIterator __first, _ForwardIterator __last,
         -: 1578:			    std::forward_iterator_tag)
         -: 1579:	{
-       20: 1580:	  const size_type __n = std::distance(__first, __last);
+       21: 1580:	  const size_type __n = std::distance(__first, __last);
         -: 1581:	  this->_M_impl._M_start
-       20: 1582:	    = this->_M_allocate(_S_check_init_len(__n, _M_get_Tp_allocator()));
-       20: 1583:	  this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-       20: 1584:	  this->_M_impl._M_finish =
-       20: 1585:	    std::__uninitialized_copy_a(__first, __last,
+       21: 1582:	    = this->_M_allocate(_S_check_init_len(__n, _M_get_Tp_allocator()));
+       21: 1583:	  this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
+       21: 1584:	  this->_M_impl._M_finish =
+       21: 1585:	    std::__uninitialized_copy_a(__first, __last,
         -: 1586:					this->_M_impl._M_start,
-       20: 1587:					_M_get_Tp_allocator());
-       20: 1588:	}
+       21: 1587:					_M_get_Tp_allocator());
+       21: 1588:	}
         -: 1589:
         -: 1590:      // Called by the first initialize_dispatch above and by the
         -: 1591:      // vector(n,value,a) constructor.
@@ -1765,24 +1765,24 @@
         -: 1764:
         -: 1765:      // Called by constructors to check initial size.
         -: 1766:      static size_type
-       21: 1767:      _S_check_init_len(size_type __n, const allocator_type& __a)
+       22: 1767:      _S_check_init_len(size_type __n, const allocator_type& __a)
         -: 1768:      {
-       21: 1769:	if (__n > _S_max_size(_Tp_alloc_type(__a)))
+       22: 1769:	if (__n > _S_max_size(_Tp_alloc_type(__a)))
     #####: 1770:	  __throw_length_error(
         -: 1771:	      __N("cannot create std::vector larger than max_size()"));
-       21: 1772:	return __n;
+       22: 1772:	return __n;
         -: 1773:      }
         -: 1774:
         -: 1775:      static size_type
-      123: 1776:      _S_max_size(const _Tp_alloc_type& __a) _GLIBCXX_NOEXCEPT
+      124: 1776:      _S_max_size(const _Tp_alloc_type& __a) _GLIBCXX_NOEXCEPT
         -: 1777:      {
         -: 1778:	// std::distance(begin(), end()) cannot be greater than PTRDIFF_MAX,
         -: 1779:	// and realistically we can't store more than PTRDIFF_MAX/sizeof(T)
         -: 1780:	// (even if std::allocator_traits::max_size says we can).
-      123: 1781:	const size_t __diffmax
+      124: 1781:	const size_t __diffmax
         -: 1782:	  = __gnu_cxx::__numeric_traits<ptrdiff_t>::__max / sizeof(_Tp);
-      123: 1783:	const size_t __allocmax = _Alloc_traits::max_size(__a);
-      123: 1784:	return (std::min)(__diffmax, __allocmax);
+      124: 1783:	const size_t __allocmax = _Alloc_traits::max_size(__a);
+      124: 1784:	return (std::min)(__diffmax, __allocmax);
         -: 1785:      }
         -: 1786:
         -: 1787:      // Internal erase functions follow.

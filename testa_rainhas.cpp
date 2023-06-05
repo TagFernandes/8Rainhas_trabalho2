@@ -49,6 +49,7 @@ TEST_CASE("solucoes validas para o problema", "[rainhas]") {
     REQUIRE(verifica_solucao_8_rainhas("teste_11.txt") == 1);
 
     REQUIRE(verifica_solucao_8_rainhas("teste_25.txt") == 1);
+    REQUIRE(verifica_solucao_8_rainhas("teste_26.txt") == 1);
 }
 
 /**
