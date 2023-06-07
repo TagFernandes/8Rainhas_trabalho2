@@ -9,7 +9,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <cctype>
+#include <cstdio>
+#include <algorithm>
 #include "rainhas.hpp"
 
 using std::cout; using std::cin;
@@ -32,7 +33,7 @@ int verificaTamanho(const std::string& filename) {
     std::ifstream arquivo(filename);
 
     if (!arquivo) {
-        std::cout << "Erro ao abrir o arquivo." << std::endl;
+        std::cout << "Erro ao abrir o arquivo." << filename << std::endl;
         return -2;
     }
 
@@ -49,7 +50,6 @@ int verificaTamanho(const std::string& filename) {
     }
 
     if (contNumeros != 64 && contLetras != 0) {
-        cout << "numeros de caracteres: " << contNumeros << endl;
         return -1;
     }
 
@@ -94,9 +94,6 @@ int check(const std::string& filename) {
         std::getline(arquivo, linha8) &&
         !std::getline(arquivo, linhaExtra)) {
     } else {
-        std::cout <<
-        "O arquivo contém menos de 8 linhas ou possui mais do que 8 linhas." <<
-        std::endl;
         return -1;
     }
 
@@ -168,7 +165,6 @@ int check(const std::string& filename) {
     }
 
     if (countTotal > 8 || countTotal < 8) {  //  mais ou menos de 8 rainhas
-        std::cout << "matriz invalida" << std::endl;
         return -1;
     }
 
@@ -251,14 +247,19 @@ int check(const std::string& filename) {
     if (valueReturn == 0) {
         std::string nome = "ataques/ataques - ";
         nome += filename;
-        std::ofstream arquivo(nome);
-
-        if (arquivo.is_open()) {  // Verifica se o arquivo foi aberto
-            arquivo << ataques;  // Escreve a mensagem no arquivo
-            arquivo.close();  // Fecha o arquivo
-        } else {
-            std::cout << "Erro ao abrir o arquivo." << std::endl;
+        std::string word = "tabuleiros/";
+        size_t pos = nome.find(word);
+        if (pos != std::string::npos) {
+           nome.erase(pos, word.length());
         }
+
+        std::ofstream file(nome);
+            if (file.is_open()) {
+                file << ataques;
+                file.close();
+            } else {
+               std::cerr << "Erro ao criar o arquivo: " << nome << std::endl;
+            }
     }
     return valueReturn;
 }
@@ -282,15 +283,18 @@ int verifica_solucao_8_rainhas(const std::string& filename) {
     int valor = check(filename);
 
     if (valor == -1) {
+        cout << "-1" << endl;
         return -1;  //  matriz Inválida
     }
     if (valor == -2) {
         cout << "Erro ao abrir arquivo" << endl;
     }
     if (valor == 0) {  //  Problema que nao e solução
+        cout << "0" << endl;
         return 0;
     }
     if (valor == 1) {  //  problema que satisfaz as 8 rainhas
+        cout << "1" << endl;
         return 1;
     }
 

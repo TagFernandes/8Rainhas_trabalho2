@@ -19,6 +19,7 @@ gcov: testa_rainhas.cpp   rainhas.cpp rainhas.hpp
 	gcov *.cpp	
 	mkdir -p cgcov
 	mv *.gcov *.gcda *.gcno cgcov
+	rm rainhas.o
 	
 debug: testa_rainhas.cpp   rainhas.cpp rainhas.hpp 
 	g++ -std=c++11 -Wall -Wall -g -c rainhas.cpp
