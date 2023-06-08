@@ -20,7 +20,7 @@
 *                 -2 caso não seja possível abrir o arquivo.                 
 */
 TEST_CASE("solucoes invalidas para o problema", "[rainhas]") {
-    REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_8_rainhas.txt") == 0);
+    REQUIRE(verifica_solucao_8_rainhas("teste_8_rainhas.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_13.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_14.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_15.txt") == 0);
@@ -36,6 +36,7 @@ TEST_CASE("solucoes invalidas para o problema", "[rainhas]") {
     REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_9.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_10.txt") == 0);
     REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_30.txt") == 0);
+    REQUIRE(verifica_solucao_8_rainhas("tabuleiros/teste_31.txt") == 0);
 }
 
 /**
